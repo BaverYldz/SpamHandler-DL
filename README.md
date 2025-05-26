@@ -118,14 +118,6 @@ Choose from the interactive menu options to prepare data, train models, or launc
 | TF-IDF + LR | 85% | 82% | 80% | 81% |
 | Ensemble | 88% | 85% | 82% | 83.5% |
 
-## Technologies Used
-
-- **Python** - Core programming language
-- **TensorFlow/Keras** - Deep learning for LSTM model
-- **NLTK** - Natural language processing
-- **Scikit-learn** - Machine learning algorithms and metrics
-- **Flask** - Web application framework
-- **HTML/CSS/JavaScript** - Frontend interface
 
 ## Future Improvements
 
@@ -147,15 +139,7 @@ This project uses Git Large File Storage (LFS) to handle large files like datase
    ```
 3. All large files are already tracked in .gitattributes
 
-### Working with Large Files
 
-- Git LFS files appear as normal files in your working directory
-- Git LFS automatically handles these files during git operations
-- If you add new large files, track them with:
-  ```
-  git lfs track "*.your_extension"
-  git add .gitattributes
-  ```
 
 ## Contributing
 
