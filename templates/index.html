@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Message Detector</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Fake Message Detector</h1>
+            <p>Detect spam and fake messages using machine learning</p>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" data-tab="detector">Detector</div>
+            <div class="tab" data-tab="history">History</div>
+            <div class="tab" data-tab="dashboard">Dashboard</div>
+            <div class="tab" data-tab="about">About</div>
+        </div>
+
+        <!-- Detector Tab -->
+        <div id="detector" class="tab-content active">
+            <div id="warning" class="warning" style="display: none;">
+                <strong>Warning:</strong> Models are not properly loaded. Please follow these steps:
+                <div class="steps">
+                    <ol>
+                        <li>Run <code>python run.py</code> in your terminal</li>
+                        <li>Choose option 5 to run the full pipeline</li>
+                    </ol>
+                </div>
+                <div id="model-status"></div>
+            </div>
+
+            <div class="card">
+                <form id="message-form">
+                    <div class="form-group">
+                        <label for="message-input">Enter a message to check if it's spam/fake:</label>
+                        <textarea id="message-input" class="message-input"
+                            placeholder="Enter your message here..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="model-select">Choose model:</label>
+                        <select id="model-select" class="form-control">
+                            <option value="all">All Models (Ensemble)</option>
+                            <option value="lstm">LSTM Only</option>
+                            <option value="tfidf">TF-IDF + LR Only</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-block">Check Message</button>
+                </form>
+            </div>
+
+            <div id="result" class="result">
+                <!-- Results will be displayed here -->
+            </div>
+
+            <div id="loading" class="loading">
+                <div class="loading-spinner"></div>
+                <p>Analyzing message...</p>
+            </div>
+        </div>
+
+        <!-- History Tab -->
+        <div id="history" class="tab-content">
+            <div class="card">
+                <h2>Message History</h2>
+                <p>Your recent message checks:</p>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Message</th>
+                                <th>Result</th>
+                                <th>Confidence</th>
+                                <th>Model</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-list">
+                            <!-- History items will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <button class="btn" onclick="clearHistory()">Clear History</button>
+            </div>
+        </div>
+
+        <!-- Dashboard Tab -->
+        <div id="dashboard" class="tab-content">
+            <div class="stats">
+                <div class="stat-card">
+                    <h3 id="total-checked">0</h3>
+                    <p>Messages Checked</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="spam-detected">0</h3>
+                    <p>Spam Detected (<span id="spam-percentage">0%</span>)</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="ham-detected">0</h3>
+                    <p>Legitimate (<span id="ham-percentage">0%</span>)</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Model Status</h2>
+                <div id="dashboard-model-status">
+                    <!-- Model status will be inserted here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- About Tab -->
+        <div id="about" class="tab-content">
+            <div class="card">
+                <h2>About Fake Message Detector</h2>
+                <p>This project uses machine learning to detect spam and fake messages on social media platforms.</p>
+
+                <h3>How it works</h3>
+                <p>The detector uses two main approaches:</p>
+                <ul>
+                    <li><strong>LSTM Neural Network:</strong> Deep learning model that understands text sequences</li>
+                    <li><strong>TF-IDF + Logistic Regression:</strong> Classic machine learning approach based on word
+                        frequencies</li>
+                </ul>
+
+                <h3>Technologies Used</h3>
+                <ul>
+                    <li>Python with TensorFlow for deep learning models</li>
+                    <li>NLTK for text processing</li>
+                    <li>Flask for web service</li>
+                    <li>HTML, CSS, and JavaScript for the user interface</li>
+                </ul>
+
+                <h3>Project Structure</h3>
+                <ul>
+                    <li><code>data/</code>: Contains the raw and processed datasets</li>
+                    <li><code>src/</code>: Source code for preprocessing, training, and prediction</li>
+                    <li><code>models/</code>: Trained machine learning models</li>
+                    <li><code>static/</code>: CSS and JavaScript files</li>
+                    <li><code>templates/</code>: HTML templates</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Fake Message Detector &copy; Github - Baveryldz21</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>
