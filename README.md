@@ -126,30 +126,6 @@ Choose from the interactive menu options to prepare data, train models, or launc
 - Develop a REST API for integration with other applications
 - Enable real-time social media monitoring
 
-## Using Git LFS for Large Files
-
-This project uses Git Large File Storage (LFS) to handle large files like datasets and models.
-
-### Setting up Git LFS
-
-1. Install Git LFS from https://git-lfs.github.com/
-2. In your cloned repository, run:
-   ```
-   git lfs install
-   ```
-3. All large files are already tracked in .gitattributes
-
-
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## License
 
