@@ -57,8 +57,16 @@ This project implements a web application that can detect fake or spam messages 
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/fake-detector.git
-cd fake-detector
+git clone https://github.com/BaverYldz/SpamHandler-DL.git
+cd SpamHandler-DL
+
+# Install Git LFS (if not installed)
+# For Windows: https://git-lfs.github.com/
+# For macOS: brew install git-lfs
+# For Ubuntu/Debian: sudo apt install git-lfs
+
+# Set up Git LFS
+git lfs install
 
 # Create virtual environment (optional but recommended)
 python -m venv venv
@@ -125,6 +133,29 @@ Choose from the interactive menu options to prepare data, train models, or launc
 - Add support for multiple languages (currently English-focused)
 - Develop a REST API for integration with other applications
 - Enable real-time social media monitoring
+
+## Using Git LFS for Large Files
+
+This project uses Git Large File Storage (LFS) to handle large files like datasets and models.
+
+### Setting up Git LFS
+
+1. Install Git LFS from https://git-lfs.github.com/
+2. In your cloned repository, run:
+   ```
+   git lfs install
+   ```
+3. All large files are already tracked in .gitattributes
+
+### Working with Large Files
+
+- Git LFS files appear as normal files in your working directory
+- Git LFS automatically handles these files during git operations
+- If you add new large files, track them with:
+  ```
+  git lfs track "*.your_extension"
+  git add .gitattributes
+  ```
 
 ## Contributing
 

@@ -1,5 +1,4 @@
-# Set up Git Large File Storage (LFS)
+# Handle large files with Git LFS
 *.h5 filter=lfs diff=lfs merge=lfs -text
-*.csv filter=lfs diff=lfs merge=lfs -text
 *.pickle filter=lfs diff=lfs merge=lfs -text
-```
+*.csv filter=lfs diff=lfs merge=lfs -text
